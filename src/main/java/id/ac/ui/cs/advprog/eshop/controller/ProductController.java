@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping("/")
     public String getHome(Model model) {
-        return "home";
+        return "index";
     }
 
     @GetMapping("/create")
