@@ -36,7 +36,7 @@ class HomePageFunctionalTest {
         String pageTitle = driver.getTitle();
 
         // Verify
-        assertEquals("ADV Shop", pageTitle);
+        assertEquals("Andrew's Shop", pageTitle);
     }
 
     @Test
@@ -44,6 +44,6 @@ class HomePageFunctionalTest {
         driver.get(baseUrl);
         String welcomeMessage = driver.findElement(By.tagName("h3")).getText();
 
-        assertEquals("Welcome", welcomeMessage);
+        assertEquals("Welcome to Andrew's Shop", welcomeMessage);
     }
 }

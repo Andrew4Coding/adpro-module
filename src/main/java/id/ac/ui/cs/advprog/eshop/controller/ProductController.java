@@ -62,4 +62,9 @@ public class ProductController {
         productService.delete(id);
         return "redirect:/product/list";
     }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
 }
