@@ -28,7 +28,7 @@ public class ProductController {
     public String createProduct(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "productCreation";
+        return "createProduct";
     }
 
     @PostMapping("/create")
