@@ -23,6 +23,9 @@ I validate user input by checking for data type, length, and format to prevent c
 ### Error Handling
 I implement proper error handling mechanisms to provide informative error messages, log exceptions, and gracefully handle unexpected situations. This helps in preventing sensitive information leakage, improving user experience, and maintaining the integrity of the application.
 
+### Encrypted UUID
+I use encrypted UUIDs for product IDs to prevent information disclosure and protect sensitive data from unauthorized access. This approach enhances data security and privacy by ensuring that product identifiers are not easily predictable or tampered with.
+
 # Reflection 2: Unit Test and Functional Test
 > After writing the unit test, how do you feel? How many unit tests should be made in a class? How to make sure that our unit tests are enough to verify our program? It would be good if you learned about code coverage. Code coverage is a metric that can help you understand how much of your source is tested. If you have 100% code coverage, does that mean your code has no bugs or errors? 
 
