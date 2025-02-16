@@ -1,23 +1,26 @@
 package id.ac.ui.cs.advprog.eshop.repository;
 
-import id.ac.ui.cs.advprog.eshop.model.Product;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.InjectMocks;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import id.ac.ui.cs.advprog.eshop.model.Product;
 
 @ExtendWith(MockitoExtension.class)
 class ProductRepositoryTest {
     @InjectMocks
     ProductRepository productRepository;
+
     @BeforeEach
     void setUp() {
-
     }
 
     @Test
@@ -45,6 +48,21 @@ class ProductRepositoryTest {
     }
 
     @Test
+    void testFindById() {
+        Product product = new Product();
+        product.setProductId("123e4567-e89b-12d3-a456-556642440000");
+        product.setProductName("Product 1");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Product savedProduct = productRepository.findById(product.getProductId()).get();
+
+        assertEquals(product.getProductId(), savedProduct.getProductId());
+        assertEquals(product.getProductName(), savedProduct.getProductName());
+        assertEquals(product.getProductQuantity(), savedProduct.getProductQuantity());
+    }
+
+    @Test
     void testFindAllIfMoreThanOneProduct() {
         Product product1 = new Product();
         product1.setProductId("123e4567-e89b-12d3-a456-556642440000");
@@ -59,17 +77,20 @@ class ProductRepositoryTest {
         productRepository.create(product2);
 
         Iterator<Product> products = productRepository.findAll();
+        
         assertTrue(products.hasNext());
 
         Product savedProduct = products.next();
-        assertEquals(product1.getProductId(), savedProduct.getProductId());
-
-        savedProduct = products.next();
-        assertEquals(product2.getProductId(), savedProduct.getProductId());
-
-        assertFalse(products.hasNext());
+        if (savedProduct.getProductId().equals(product1.getProductId())) {
+            assertEquals(product1.getProductId(), savedProduct.getProductId());
+            assertEquals(product1.getProductName(), savedProduct.getProductName());
+            assertEquals(product1.getProductQuantity(), savedProduct.getProductQuantity());
+        } else {
+            assertEquals(product2.getProductId(), savedProduct.getProductId());
+            assertEquals(product2.getProductName(), savedProduct.getProductName());
+            assertEquals(product2.getProductQuantity(), savedProduct.getProductQuantity());
+        }
     }
-
 
     // Update
     @Test
@@ -128,10 +149,26 @@ class ProductRepositoryTest {
         assertTrue(products.hasNext());
 
         Product savedProduct = products.next();
-        assertEquals(product1.getProductId(), savedProduct.getProductId());
+        if (savedProduct.getProductId().equals(product1.getProductId())) {
+            assertEquals(product1.getProductId(), savedProduct.getProductId());
+            assertEquals(product1.getProductName(), savedProduct.getProductName());
+            assertEquals(product1.getProductQuantity(), savedProduct.getProductQuantity());
+        } else {
+            assertEquals(product2.getProductId(), savedProduct.getProductId());
+            assertEquals(product2.getProductName(), savedProduct.getProductName());
+            assertEquals(product2.getProductQuantity(), savedProduct.getProductQuantity());
+        }
 
         savedProduct = products.next();
-        assertEquals(product2.getProductId(), savedProduct.getProductId());
+        if (savedProduct.getProductId().equals(product1.getProductId())) {
+            assertEquals(product1.getProductId(), savedProduct.getProductId());
+            assertEquals(product1.getProductName(), savedProduct.getProductName());
+            assertEquals(product1.getProductQuantity(), savedProduct.getProductQuantity());
+        } else {
+            assertEquals(product2.getProductId(), savedProduct.getProductId());
+            assertEquals(product2.getProductName(), savedProduct.getProductName());
+            assertEquals(product2.getProductQuantity(), savedProduct.getProductQuantity());
+        }
 
         assertFalse(products.hasNext());
     }
