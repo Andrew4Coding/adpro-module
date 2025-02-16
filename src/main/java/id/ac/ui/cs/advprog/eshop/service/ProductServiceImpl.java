@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -30,12 +31,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findById(String id) {
+    public Optional<Product> findById(String id) {
         return productRepository.findById(id);
     }
 
     @Override
-    public Product update(Product product) {
+    public Optional<Product> update(Product product) {
         return productRepository.update(product);
     }
 

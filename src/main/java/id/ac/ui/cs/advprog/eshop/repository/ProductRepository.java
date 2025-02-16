@@ -4,49 +4,39 @@ import id.ac.ui.cs.advprog.eshop.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ProductRepository {
-    private List<Product> products = new ArrayList<>();
+    // Hashmap to store products
+    private HashMap<String, Product> products = new HashMap<>();
 
     public Product create(Product product) {
-        products.add(product);
+        products.put(product.getProductId(), product);
         return product;
     }
 
     public Iterator<Product> findAll() {
-        return products.iterator();
+        List<Product> productList = new ArrayList<>(products.values());
+        return productList.iterator();
     }
 
-    public Product findById(String id) {
-        for (Product product : products) {
-            if (product.getProductId().equals(id)) {
-                return product;
-            }
-        }
-
-        return null;
+    public Optional<Product> findById(String id) {
+        return Optional.ofNullable(products.get(id));
     }
 
-    public Product update(Product product) {
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getProductId().equals(product.getProductId())) {
-                products.set(i, product);
-                return product;
-            }
+    public Optional<Product> update(Product product) {
+        if (products.containsKey(product.getProductId())) {
+            products.put(product.getProductId(), product);
+            return Optional.of(product);
         }
-
-        return null;
+        return Optional.empty();
     }
 
     public void delete(String id) {
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getProductId().equals(id)) {
-                products.remove(i);
-                break;
-            }
-        }
+        products.remove(id);
     }
 }
