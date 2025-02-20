@@ -7,12 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Repository
 public class ProductRepository {
     // Hashmap to store products
-    private HashMap<String, Product> products = new HashMap<>();
+    private Map<String, Product> products = new HashMap<>();
 
     public Product create(Product product) {
         products.put(product.getProductId(), product);
