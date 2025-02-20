@@ -4,6 +4,20 @@ NPM     : 2306152494
 
 Class    : Adpro-A
 
+# Reflection 2: CI/CD and DevOps
+> List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
+
+During the exercise, I fixed the following code quality issues:
+1. **Unnecessary Public Modifier**: I removed the `public` modifier from the `ProductServiceImpl` class declaration as it is not needed for classes within the same package. This change improves encapsulation and reduces unnecessary visibility.
+2. **Use Interface for Hashmap**: I refactored the `ProductRepository` implementation to use the `Map` interface instead of the `HashMap` concrete class. This change allows for easier switching between different map implementations in the future.
+3. **Add MIT License**: I added the MIT license to the project repository to clarify the terms of use and distribution for the source code. This change ensures that the project is open-source and can be freely used by others.
+4. **Add Dependabot Configuration**: I added a Dependabot configuration file to enable automated dependency updates for the project. This change helps in keeping dependencies up-to-date and secure by automatically checking for new versions.
+
+> Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment? Explain the reasons (minimum 3 sentences)!
+
+The current CI/CD workflows in GitHub have met the definition of Continuous Integration and Continuous Deployment. The CI workflow for testing is triggered on every push to the master branch, ensuring that changes are continuously integrated and tested. Besides that, the scoreboard, pmd, and dependabot checks are triggered on every push. The CD workflow is triggered after the CI workflow passes, automatically deploying the master branch of the application to Koyeb. This automated process helps in maintaining a consistent and reliable deployment pipeline, reducing manual errors and enabling faster delivery of new features.
+
+
 # Reflection 1: Coding Standards and Secure Coding
 > You already implemented two new features using Spring Boot. Check again your source code and evaluate the coding standards that you have learned in this module. Write clean code principles and secure coding practices that have been applied to your code.  If you find any mistake in your source code, please explain how to improve your code
 ## Coding Standards
