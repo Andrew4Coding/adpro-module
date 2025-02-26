@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.model.Product;
 import id.ac.ui.cs.advprog.eshop.service.CarServiceImpl;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
-
 
 @Controller
 @RequestMapping("/car")
