@@ -3,6 +3,7 @@ package id.ac.ui.cs.advprog.eshop.service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import id.ac.ui.cs.advprog.eshop.model.Car;
 import id.ac.ui.cs.advprog.eshop.repository.CarRepository;
 
 @Service
-public class CarServiceImpl implements CarService{
+public class CarServiceImpl implements ServiceInterface<Car> {
     @Autowired
     private CarRepository carRepository;
 
@@ -30,17 +31,18 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public Car findById(String carId) {
+    public Optional<Car> findById(String carId) {
         return carRepository.findById(carId);
     }
 
     @Override
-    public void update(String carId, Car car) {
-        carRepository.update(carId, car);
+    public Optional<Car> update(Car car) {
+        carRepository.update(car);
+        return Optional.of(car);
     }
 
     @Override
-    public void deleteCarById(String carId) {
+    public void delete(String carId) {
         carRepository.delete(carId);
     }
 }

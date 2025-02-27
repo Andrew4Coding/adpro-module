@@ -19,7 +19,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
+import id.ac.ui.cs.advprog.eshop.service.ServiceInterface;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -29,7 +29,7 @@ public class ProductControllerTest {
 
     @SuppressWarnings("removal")
     @MockBean
-    private ProductService productService;
+    private ServiceInterface<Product> productService;
 
     @Test
     public void testGetHome() throws Exception {

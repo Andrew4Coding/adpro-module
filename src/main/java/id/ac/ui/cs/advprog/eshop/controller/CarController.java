@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.service.CarServiceImpl;
+import id.ac.ui.cs.advprog.eshop.service.ServiceInterface;
 
 @Controller
 @RequestMapping("/car")
 public class CarController {
     @Autowired
-    private CarServiceImpl carService;
+    private ServiceInterface<Car> carService;
 
     @GetMapping("/createCar")
     public String createCar(Model model) {
@@ -40,7 +42,7 @@ public class CarController {
 
     @GetMapping("/updateCar/{id}")
     public String updateCar(@PathVariable("id") String id, Model model) {
-        Car car = carService.findById(id);
+        Optional<Car> car = carService.findById(id);
         model.addAttribute("car", car);
         return "updateCar";
     }
@@ -48,13 +50,13 @@ public class CarController {
     @PostMapping("/updateCar")
     public String updateCar(@ModelAttribute Car car, Model model) {
         System.out.println(car.getId());
-        carService.update(car.getId(), car);
+        carService.update(car);
         return "redirect:listCar";
     }
 
     @PostMapping("/deleteCar")
     public String deleteCar(@RequestParam("carId") String carId) {
-        carService.deleteCarById(carId);
+        carService.delete(carId);
         return "redirect:listCar";
     }
 }

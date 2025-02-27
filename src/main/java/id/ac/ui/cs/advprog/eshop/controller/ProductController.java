@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
+import id.ac.ui.cs.advprog.eshop.service.ServiceInterface;
 
 
 @Controller
 @RequestMapping("/product")
 public class ProductController {
     @Autowired
-    private ProductService productService;
+    private ServiceInterface<Product> productService;
 
     @GetMapping("/")
     public String getHome(Model model) {
