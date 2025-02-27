@@ -5,6 +5,6 @@ import  lombok.Setter;
 
 @Getter
 @Setter
-public class Car extends Model {
+public class Car extends ModelAbstract {
     private String color;
 }

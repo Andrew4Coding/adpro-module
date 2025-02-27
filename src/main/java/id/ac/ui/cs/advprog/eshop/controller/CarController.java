@@ -21,40 +21,40 @@ public class CarController {
     @Autowired
     private ServiceInterface<Car> carService;
 
-    @GetMapping("/createCar")
+    @GetMapping("/create")
     public String createCar(Model model) {
         Car car = new Car();
         model.addAttribute("car", car);
         return "createCar";
     }
 
-    @PostMapping("/createCar")
+    @PostMapping("/create")
     public String createCar(@ModelAttribute Car car, Model model) {
         carService.create(car);
         return "redirect:listCar";
     }
 
-    @GetMapping("/listCar")
+    @GetMapping("/list")
     public String carListCar(Model model) {
         model.addAttribute("cars", carService.findAll());
         return "listCar";
     }
 
-    @GetMapping("/updateCar/{id}")
+    @GetMapping("/update/{id}")
     public String updateCar(@PathVariable("id") String id, Model model) {
         Optional<Car> car = carService.findById(id);
         model.addAttribute("car", car);
         return "updateCar";
     }
 
-    @PostMapping("/updateCar")
+    @PostMapping("/update")
     public String updateCar(@ModelAttribute Car car, Model model) {
         System.out.println(car.getId());
         carService.update(car);
         return "redirect:listCar";
     }
 
-    @PostMapping("/deleteCar")
+    @PostMapping("/delete")
     public String deleteCar(@RequestParam("carId") String carId) {
         carService.delete(carId);
         return "redirect:listCar";

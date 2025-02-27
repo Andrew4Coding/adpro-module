@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import id.ac.ui.cs.advprog.eshop.model.Model;
+import id.ac.ui.cs.advprog.eshop.model.ModelAbstract;
 
-public abstract class RepositoryAbstract<T extends Model> {
+public abstract class RepositoryAbstract<T extends ModelAbstract> {
     Map<String, T> items = new HashMap<>();
 
     public T create(T product) {

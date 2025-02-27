@@ -5,12 +5,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class Model {
+public abstract class ModelAbstract {
     private String id;
     private String name;
     private int quantity;
 
-    public Model() {
+    public ModelAbstract() {
         this.id = java.util.UUID.randomUUID().toString();
     }
 }

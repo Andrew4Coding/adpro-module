@@ -5,4 +5,4 @@ import  lombok.Setter;
 
 @Getter
 @Setter
-public class Product extends Model {}
+public class Product extends ModelAbstract {}
