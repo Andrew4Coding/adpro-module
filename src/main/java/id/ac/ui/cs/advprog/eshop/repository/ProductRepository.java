@@ -16,7 +16,7 @@ public class ProductRepository {
     private Map<String, Product> products = new HashMap<>();
 
     public Product create(Product product) {
-        products.put(product.getProductId(), product);
+        products.put(product.getId(), product);
         return product;
     }
 
@@ -30,8 +30,8 @@ public class ProductRepository {
     }
 
     public Optional<Product> update(Product product) {
-        if (products.containsKey(product.getProductId())) {
-            products.put(product.getProductId(), product);
+        if (products.containsKey(product.getId())) {
+            products.put(product.getId(), product);
             return Optional.of(product);
         }
         return Optional.empty();

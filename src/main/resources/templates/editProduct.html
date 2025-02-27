@@ -10,18 +10,18 @@
 	<div class="container mx-auto p-8">
 		<h3 class="text-2xl font-bold mb-6">Edit Product</h3>
 
-		<form th:action="@{/product/update/{productId}(productId=${product.productId})}" th:object="${product}" method="post" class="p-6 rounded-lg shadow-md">
+		<form th:action="@{/product/update/{id}(id=${product.id})}" th:object="${product}" method="post" class="p-6 rounded-lg shadow-md">
 			<div class="mb-4">
 				<label for="idInput" class="block text-gray-700 font-bold mb-2">ID</label>
-				<input disabled th:field="*{productId}" type="text" class="input input-bordered w-full mt-1" id="idInput" placeholder="Enter product ID" />
+				<input disabled th:field="*{id}" type="text" class="input input-bordered w-full mt-1" id="idInput" placeholder="Enter product ID" />
 			</div>
 			<div class="mb-4">
 				<label for="nameInput" class="block text-gray-700 font-bold mb-2">Name</label>
-				<input th:field="*{productName}" type="text" class="input input-bordered w-full mt-1" id="nameInput" placeholder="Enter product's name" />
+				<input th:field="*{name}" type="text" class="input input-bordered w-full mt-1" id="nameInput" placeholder="Enter product's name" />
 			</div>
 			<div class="mb-4">
 				<label for="quantityInput" class="block text-gray-700 font-bold mb-2">Quantity</label>
-				<input th:field="*{productQuantity}" type="text" class="input input-bordered w-full mt-1" id="quantityInput" placeholder="Enter product's quantity" />
+				<input th:field="*{quantity}" type="text" class="input input-bordered w-full mt-1" id="quantityInput" placeholder="Enter product's quantity" />
 			</div>
 			<button type="submit" class="btn btn-primary mt-4">Update</button>
 		</form>

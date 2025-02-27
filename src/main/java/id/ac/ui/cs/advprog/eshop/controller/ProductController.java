@@ -52,7 +52,7 @@ public class ProductController {
 
     @PostMapping("/update/{id}")
     public String updateProduct(@PathVariable("id") String id, @ModelAttribute Product product, Model model) {
-        product.setProductId(id);
+        product.setId(id);
         productService.update(product);
         return "redirect:/product/list";
     }
