@@ -7,5 +7,7 @@ import  lombok.Setter;
 @Getter
 @Setter
 public class Car extends ModelAbstract {
+    private String name;
+    private int quantity;
     private String color;
 }

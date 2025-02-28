@@ -7,9 +7,6 @@ import lombok.Setter;
 @Setter
 public abstract class ModelAbstract {
     private String id;
-    private String name;
-    private int quantity;
-
     public ModelAbstract() {
         this.id = java.util.UUID.randomUUID().toString();
     }

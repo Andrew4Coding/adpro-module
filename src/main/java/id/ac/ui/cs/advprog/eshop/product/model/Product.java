@@ -6,4 +6,7 @@ import  lombok.Setter;
 
 @Getter
 @Setter
-public class Product extends ModelAbstract {}
+public class Product extends ModelAbstract {
+    private String name;
+    private int quantity;
+}
