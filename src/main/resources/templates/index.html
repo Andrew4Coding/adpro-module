@@ -6,10 +6,27 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Andrew's Shop</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 
-	<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+	<body class="flex flex-col gap-4 items-center justify-center min-h-screen">
 		<h3 class="text-2xl font-bold mb-4">Welcome to Andrew's Shop</h3>
+		<div class="flex space-x-4">
+			<a
+				href="/car/list"
+				class="btn btn-btn-primary"
+				>Car List</a
+			>
+			<a
+				href="/product/list"
+				class="btn btn-outline-dark"
+				>Product List</a
+			>
+		</div>
 	</body>
 </html>

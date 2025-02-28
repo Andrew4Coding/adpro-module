@@ -28,8 +28,8 @@ public class CarServiceImpl implements CarService {
         return cars;
     }
 
-    public Optional<Car> findById(String carId) {
-        return carRepository.findById(carId);
+    public Optional<Car> findById(String id) {
+        return carRepository.findById(id);
     }
 
     public Optional<Car> update(Car car) {
@@ -37,7 +37,7 @@ public class CarServiceImpl implements CarService {
         return Optional.of(car);
     }
 
-    public void delete(String carId) {
-        carRepository.delete(carId);
+    public void delete(String id) {
+        carRepository.delete(id);
     }
 }
