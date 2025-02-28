@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import id.ac.ui.cs.advprog.eshop.lib.model.ModelAbstract;
 
-public interface ServiceAbstract<T extends ModelAbstract> {
+public interface ServiceInterface<T extends ModelAbstract> {
     T create(T item);
 
     List<T> findAll();
