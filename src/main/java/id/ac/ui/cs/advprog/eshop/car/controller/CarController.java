@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.controller;
+package id.ac.ui.cs.advprog.eshop.car.controller;
 
 import java.util.Optional;
 
@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.service.ServiceInterface;
+import id.ac.ui.cs.advprog.eshop.car.model.Car;
+import id.ac.ui.cs.advprog.eshop.car.service.CarService;
 
 @Controller
 @RequestMapping("/car")
 public class CarController {
     @Autowired
-    private ServiceInterface<Car> carService;
+    private CarService carService;
 
     @GetMapping("/create")
     public String createCar(Model model) {

@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.service;
+package id.ac.ui.cs.advprog.eshop.car.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,20 +8,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.repository.CarRepository;
+import id.ac.ui.cs.advprog.eshop.car.model.Car;
+import id.ac.ui.cs.advprog.eshop.car.repository.CarRepositoryImpl;
 
 @Service
-public class CarServiceImpl implements ServiceInterface<Car> {
+public class CarServiceImpl implements CarService { 
     @Autowired
-    private CarRepository carRepository;
+    private CarRepositoryImpl carRepository;
 
-    @Override
     public Car create(Car car) {
         return carRepository.create(car);
     }
 
-    @Override
     public List<Car> findAll() {
         Iterator<Car> carIterator = carRepository.findAll();
         List<Car> cars = new ArrayList<>();
@@ -30,18 +28,15 @@ public class CarServiceImpl implements ServiceInterface<Car> {
         return cars;
     }
 
-    @Override
     public Optional<Car> findById(String carId) {
         return carRepository.findById(carId);
     }
 
-    @Override
     public Optional<Car> update(Car car) {
         carRepository.update(car);
         return Optional.of(car);
     }
 
-    @Override
     public void delete(String carId) {
         carRepository.delete(carId);
     }

@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.service;
+package id.ac.ui.cs.advprog.eshop.product.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,13 +8,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.repository.ProductRepository;
+import id.ac.ui.cs.advprog.eshop.product.model.Product;
+import id.ac.ui.cs.advprog.eshop.product.repository.ProductRepositoryImpl;
 
 @Service
-public class ProductServiceImpl implements ServiceInterface<Product> {
+public class ProductServiceImpl implements ProductService {
     @Autowired
-    private ProductRepository productRepository;
+    private ProductRepositoryImpl productRepository;
 
     @Override
     public Product create(Product product) {
