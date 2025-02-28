@@ -18,8 +18,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
+import id.ac.ui.cs.advprog.eshop.product.model.Product;
+import id.ac.ui.cs.advprog.eshop.product.service.ProductService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -60,14 +60,14 @@ public class ProductControllerTest {
         Product product1 = new Product();
         Product product2 = new Product();
 
-        product1.setProductId("1");
-        product2.setProductId("2");
+        product1.setId("1");
+        product2.setId("2");
 
-        product1.setProductName("Product 1");
-        product2.setProductName("Product 2");
+        product1.setName("Product 1");
+        product2.setName("Product 2");
 
-        product1.setProductQuantity(100);
-        product2.setProductQuantity(200);
+        product1.setQuantity(100);
+        product2.setQuantity(200);
 
         when(productService.findAll()).thenReturn(Arrays.asList(product1, product2));
 
@@ -80,9 +80,9 @@ public class ProductControllerTest {
     @Test
     public void testUpdateProductGet() throws Exception {
         Product product = new Product();
-        product.setProductId("1");
-        product.setProductName("Product 1");
-        product.setProductQuantity(100);
+        product.setId("1");
+        product.setName("Product 1");
+        product.setQuantity(100);
 
         when(productService.findById("1")).thenReturn(Optional.of(product));
         mockMvc.perform(get("/product/update/1"))

@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.controller;
+package id.ac.ui.cs.advprog.eshop.product.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
+import id.ac.ui.cs.advprog.eshop.product.model.Product;
+import id.ac.ui.cs.advprog.eshop.product.service.ProductService;
 
 
 @Controller
@@ -52,7 +52,7 @@ public class ProductController {
 
     @PostMapping("/update/{id}")
     public String updateProduct(@PathVariable("id") String id, @ModelAttribute Product product, Model model) {
-        product.setProductId(id);
+        product.setId(id);
         productService.update(product);
         return "redirect:/product/list";
     }

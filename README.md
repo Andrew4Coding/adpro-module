@@ -4,6 +4,36 @@ NPM     : 2306152494
 
 Class    : Adpro-A
 
+# Reflection 3: Maintainability and OO Principles
+>  Explain what principles you apply to your project!
+## SOLID Principles
+### Single Responsibility Principle (SRP)
+I apply the SRP by ensuring that each class has a single responsibility and encapsulates a single functionality. For example, the `ProductService` class is responsible for handling product-related business logic, while the `ProductController` class is responsible for handling HTTP requests and responses. Besides that, I separate the Car and Product into different classes to ensure that each class has a clear and distinct responsibility.
+
+### Open/Closed Principle (OCP)
+I apply the OCP by designing classes that are open for extension but closed for modification. For example, I use `ModelAbstract` as a base class for `Car` and `Product` to allow for easy extension with new models in the future without modifying existing code. This approach promotes code reusability and maintainability by enabling new features to be added without altering the existing codebase.
+
+### Liskov Substitution Principle (LSP)
+I apply the LSP by ensuring that subclasses can be substituted for their base class without affecting the behavior of the program. For example, the `Car` and `Product` classes can be used interchangeably in the `ModelAbstract` class without changing the expected behavior. This principle helps in creating a consistent and predictable behavior across different subclasses.
+
+### Interface Segregation Principle (ISP)
+I apply the ISP by defining specific interfaces for different functionalities to avoid bloated interfaces. For example, the `CarService` and `ProductService` interfaces define methods specific to car and product operations, respectively. This approach ensures that classes only implement the methods they need, promoting code clarity and reducing unnecessary dependencies.
+
+### Dependency Inversion Principle (DIP)
+I apply the DIP by decoupling high-level modules from low-level modules and depending on abstractions rather than concrete implementations. For example, I use `CarService` and `ProductService` interfaces to make service instance in controller, allowing for easy swapping of implementations. This approach promotes flexibility, testability, and maintainability by reducing tight coupling between components.
+
+> Explain the advantages of applying SOLID principles to your project with examples.
+Applying SOLID principles to the project offers several advantages, including: 
+1. **Improved Maintainability**: By following the SRP, classes have a single responsibility, making it easier to understand, modify, and extend the codebase. For example, the `ProductService` class is responsible for product-related logic, while the `ProductController` class handles HTTP requests and responses.
+2. **Enhanced Flexibility**: By adhering to the OCP, classes are open for extension but closed for modification, allowing new features to be added without altering existing code. For example, new models can be easily added by extending the `ModelAbstract` class without changing the base functionality.
+3. **Increased Reusability**: By following the LSP, subclasses can be substituted for their base class without affecting the program's behavior, promoting code reusability and consistency. For example, the `Car` and `Product` classes can be used interchangeably in the `ModelAbstract` class.
+
+> Explain the disadvantages of not applying SOLID principles to your project with examples.
+Not applying SOLID principles to the project can lead to several disadvantages, including:
+1. **Increased Complexity**: Ignoring the SRP can lead to classes with multiple responsibilities, making the code harder to understand and maintain. For example, a class handling both business logic and data access can become overly complex and difficult to debug.
+2. **Tight Coupling**: Disregarding the OCP can result in tightly coupled classes, making it challenging to add new features or modify existing ones without affecting other parts of the code. For instance, changes to a base class might require updates in multiple subclasses.
+3. **Inconsistent Behavior**: Neglecting the LSP can cause subclasses to behave inconsistently with their base class, reducing code reliability. For example, if subclasses do not adhere to the base class's contract, they may introduce unexpected behavior or errors.
+
 # Reflection 2: CI/CD and DevOps
 > List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
 

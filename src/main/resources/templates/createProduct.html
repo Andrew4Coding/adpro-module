@@ -13,11 +13,11 @@
         <form th:action="@{/product/create}" th:object="${product}" method="post" class="bg-black p-6 rounded-lg shadow-md">
             <div class="mb-4">
                 <label for="nameInput" class="block text-gray-700 font-bold mb-2">Name</label>
-                <input th:field="*{productName}" type="text" class="input input-bordered w-full mt-1" id="nameInput" placeholder="Enter product name" />
+                <input th:field="*{name}" type="text" class="input input-bordered w-full mt-1" id="nameInput" placeholder="Enter product name" />
             </div>
             <div class="mb-4">
                 <label for="quantityInput" class="block text-gray-700 font-bold mb-2">Quantity</label>
-                <input th:field="*{productQuantity}" type="number" class="input input-bordered w-full mt-1" id="quantityInput" placeholder="Enter product quantity" />
+                <input th:field="*{quantity}" type="number" class="input input-bordered w-full mt-1" id="quantityInput" placeholder="Enter product quantity" />
             </div>
             <button type="submit" class="btn btn-primary mt-4">Submit</button>
         </form>
