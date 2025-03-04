@@ -57,4 +57,9 @@ public class CarController {
         carService.delete(id);
         return "redirect:/car/list";
     }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error";
+    }
 }
