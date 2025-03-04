@@ -51,13 +51,13 @@ public class OrderTest {
 
         assertEquals(1708560000L, order.getOrderTime());
         assertEquals("Hehe", order.getAuthor());
-        assertEquals("WAITING_PAYMENT", order.getStatus());
+        assertEquals(OrderStatus.WAITING_PAYMENT.getValue(), order.getStatus());
     }
 
     @Test
     void testCreateOrderSuccessStatus() {
-        Order order = new Order(this.products, 1708560000L, "Hehe", "SUCCESS");
-        assertEquals("SUCCESS", order.getStatus());
+        Order order = new Order(this.products, 1708560000L, "Hehe", OrderStatus.SUCCESS.getValue());
+        assertEquals(OrderStatus.SUCCESS.getValue(), order.getStatus());
     }
 
     @Test
@@ -70,9 +70,9 @@ public class OrderTest {
     @Test
     void testSetStatusToCancelled() {
         Order order = new Order(this.products, 1708560000L, "Hehe");
-        order.setStatus("CANCELLED");
+        order.setStatus(OrderStatus.CANCELLED.getValue());
 
-        assertEquals("CANCELLED", order.getStatus());
+        assertEquals(OrderStatus.CANCELLED.getValue(), order.getStatus());
     }
 
     @Test
