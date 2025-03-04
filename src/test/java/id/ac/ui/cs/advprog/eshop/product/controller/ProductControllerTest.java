@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.controller;
+package id.ac.ui.cs.advprog.eshop.product.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

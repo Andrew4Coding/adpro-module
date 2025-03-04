@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.functional;
+package id.ac.ui.cs.advprog.eshop.product.functional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
@@ -16,7 +16,7 @@ import io.github.bonigarcia.seljup.SeleniumJupiter;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ExtendWith(SeleniumJupiter.class)
-class HomePageFunctionalTest {
+class CreatePrroductFunctionalTest {
     @LocalServerPort
     private int port;
 
@@ -30,20 +30,16 @@ class HomePageFunctionalTest {
         baseUrl = String.format("%s:%d", testBaseUrl, port);
     }
 
+    // Simulate create product
     @Test
-    void pageTitle_isCorrect(ChromeDriver driver) throws Exception {
-        driver.get(baseUrl);
-        String pageTitle = driver.getTitle();
+    void testCreateProduct(ChromeDriver driver) {
+        driver.get(baseUrl + "/product/create");
 
-        // Verify
-        assertEquals("Andrew's Shop", pageTitle);
-    }
+        driver.findElement(By.id("nameInput")).sendKeys("Test Product");
+        driver.findElement(By.id("quantityInput")).sendKeys("10");
+        driver.findElement(By.cssSelector("button[type='submit']")).click();
 
-    @Test
-    void welcomeMessage_homePage_isCorrect(ChromeDriver driver) throws Exception {
-        driver.get(baseUrl);
-        String welcomeMessage = driver.findElement(By.tagName("h3")).getText();
-
-        assertEquals("Welcome to Andrew's Shop", welcomeMessage);
+        String currentUrl = driver.getCurrentUrl();
+        assertEquals(baseUrl + "/product/list", currentUrl);
     }
 }

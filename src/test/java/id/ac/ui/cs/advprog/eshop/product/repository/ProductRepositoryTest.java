@@ -1,4 +1,4 @@
-package id.ac.ui.cs.advprog.eshop.repository;
+package id.ac.ui.cs.advprog.eshop.product.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -13,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import id.ac.ui.cs.advprog.eshop.product.model.Product;
-import id.ac.ui.cs.advprog.eshop.product.repository.ProductRepositoryImpl;
 
 @ExtendWith(MockitoExtension.class)
 class ProductRepositoryTest {
