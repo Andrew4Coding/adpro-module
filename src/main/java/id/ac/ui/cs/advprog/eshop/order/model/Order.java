@@ -11,8 +11,8 @@ public class Order extends ModelAbstract {
     private List<Product> products;
     private Long orderTime;
     private String author;
-
     private String status;
+
 
     public Order(List<Product> products, Long orderTime, String author) {
         super();
@@ -28,8 +28,13 @@ public class Order extends ModelAbstract {
         }
     }
 
-    public Order(List<Product> products, Long orderTime, String author, String status) {
+    public Order(String id, List<Product> products, Long orderTime, String author) {
         this(products, orderTime, author);
+        this.setId(id);
+    }
+
+    public Order(String id, List<Product> products, Long orderTime, String author, String status) {
+        this(id, products, orderTime, author);
         this.setStatus(status);
     }
 

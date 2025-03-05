@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -56,14 +57,14 @@ public class OrderTest {
 
     @Test
     void testCreateOrderSuccessStatus() {
-        Order order = new Order(this.products, 1708560000L, "Hehe", OrderStatus.SUCCESS.getValue());
+        Order order = new Order(UUID.randomUUID().toString(), this.products, 1708560000L, "Hehe", OrderStatus.SUCCESS.getValue());
         assertEquals(OrderStatus.SUCCESS.getValue(), order.getStatus());
     }
 
     @Test
     void testCreateOrderInvalidStatus() {
         assertThrows(IllegalArgumentException.class, () -> {
-            new Order(this.products, 1708560000L, "Hehe", "INVALID_STATUS");
+            new Order(UUID.randomUUID().toString(), this.products, 1708560000L, "Hehe", "INVALID_STATUS");
         });
     }
 
