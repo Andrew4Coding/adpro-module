@@ -1,11 +1,11 @@
 package id.ac.ui.cs.advprog.eshop.order.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,10 +33,10 @@ public class OrderRepositoryTest {
         Order order1 = new Order(products, 170856000L, "Andrew 1");
         orders.add(order1);
 
-        Order order2 = new Order(products, 170857001L, "Andrew 2");
+        Order order2 = new Order(products, 170857001L, "Andrew 1");
         orders.add(order2);
 
-        Order order3 = new Order(products, 170858002L, "Andrew 3");
+        Order order3 = new Order(products, 170858002L, "Andrew 2");
         orders.add(order3);
     }
 
@@ -59,8 +59,7 @@ public class OrderRepositoryTest {
         Order order = orders.get(1);
         orderRepository.save(order);
 
-        Order newOrder = new Order(order.getProducts(), order.getOrderTime(), order.getAuthor(),
-                OrderStatus.SUCCESS.getValue());
+        Order newOrder = new Order(order.getId(), order.getProducts(), order.getOrderTime(), order.getAuthor(), OrderStatus.SUCCESS.getValue());
         Order result = orderRepository.save(newOrder);
 
         Order findResult = orderRepository.findById(orders.get(1).getId()).get();
@@ -94,9 +93,9 @@ public class OrderRepositoryTest {
             orderRepository.save(order);
         }
 
-        Order findResult = orderRepository.findById("Hello").get();
+        Optional<Order> findResult = orderRepository.findById("Hello");
 
-        assertNull(findResult);
+        assertTrue(findResult.isEmpty());
     }
 
     @Test
