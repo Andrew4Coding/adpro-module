@@ -1,6 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.order.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +17,27 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order create(Order order) {
-        return null;
+        try {
+            orderRepository.findById(order.getId()).get();
+            return null;
+        } catch (NoSuchElementException e) {
+            orderRepository.save(order);
+            return order;
+        }
     }
 
     @Override
     public List<Order> findAllByAuthor(String author) {
-        return null;
+        return orderRepository.findAllByAuthor(author);
     }
 
     @Override
     public Order updateStatus(String orderId, String status) {
-        return null;
+        Order order = orderRepository.findById(orderId).get();
+        Order newOrder = new Order(order.getId(), order.getProducts(), order.getOrderTime(), order.getAuthor(),
+                status);
+        orderRepository.save(newOrder);
+        return newOrder;
     }
 
     @Override
@@ -36,14 +47,16 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Optional<Order> findById(String id) {
-        return null;
+        return orderRepository.findById(id);
     }
 
     @Override
     public Optional<Order> update(Order order) {
-        return null;
+        return orderRepository.update(order);
     }
 
     @Override
-    public void delete(String id) {}
+    public void delete(String id) {
+        orderRepository.delete(id);
+    }
 }
