@@ -4,6 +4,16 @@ NPM     : 2306152494
 
 Class    : Adpro-A
 
+# Relfection 4: Refactoring and TDD
+> You have followed the Test-Driven Development workflow in the Exercise. Now answer these questions:
+> Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+
+The TDD flow has been beneficial in improving code quality, test coverage, and design. By following the TDD cycle of writing a failing test, implementing the code, and refactoring, I focused on requirements, design, and testability. This approach helped identify edge cases, reduce bugs, and ensure expected behavior. However, I can further improve by focusing on better test coverage and handling more edge cases.
+
+> You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.
+
+The unit tests created in the Tutorial have successfully followed the F.I.R.S.T. principle, which stands for Fast, Independent, Repeatable, Self-Validating, and Timely. The tests are fast as they run quickly and do not require external dependencies. They are independent of each other, meaning they can be run in any order without affecting the results. The tests are repeatable, producing consistent results regardless of the environment. They are self-validating, providing a clear pass or fail outcome. Lastly, the tests are timely, written before the code to ensure that the requirements are met. To improve the tests further, I can focus on increasing test coverage, handling edge cases, and ensuring that the tests are maintainable and readable.
+
 # Reflection 3: Maintainability and OO Principles
 >  Explain what principles you apply to your project!
 ## SOLID Principles
