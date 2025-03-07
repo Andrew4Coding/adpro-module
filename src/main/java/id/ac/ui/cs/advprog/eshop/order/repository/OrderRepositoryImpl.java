@@ -5,8 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import id.ac.ui.cs.advprog.eshop.order.model.Order;
 
+@Repository
 public class OrderRepositoryImpl implements OrderRepository {
     private List<Order> orders = new ArrayList<>();
 
