@@ -42,7 +42,7 @@ public class PaymentTest {
 
     @Test
     void testPaymentCreation() {
-        assertEquals(order, payment.getOrder());
+        assertEquals(order, this.payment.getOrder());
         assertEquals(PaymentMethod.VOUCHER.getValue(), payment.getMethod());
         assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
         assertEquals(paymentData, payment.getPaymentData());
@@ -135,7 +135,10 @@ public class PaymentTest {
 
     @Test
     void testEmptyVoucherCode() {
-        Map<String, String> emptyVoucherData = new HashMap<>();
+        assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
+
+        Map<String, String> emptyVoucherData = 
+        new HashMap<>();
         emptyVoucherData.put("voucherCode", "");
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -155,7 +158,7 @@ public class PaymentTest {
             payment.setPaymentData(nullVoucherData);
         });
 
-        assertEquals("paymentData is not valid", exception.getMessage());
+        assertEquals("Invalid payment data", exception.getMessage());
         assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
     }
 
@@ -168,7 +171,7 @@ public class PaymentTest {
             payment.setPaymentData(invalidVoucherData);
         });
 
-        assertEquals("paymentData is not valid", exception.getMessage());
+        assertEquals("Invalid payment data", exception.getMessage());
         assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
     }
 
@@ -194,7 +197,7 @@ public class PaymentTest {
             payment.setPaymentData(invalidVoucherData);
         });
 
-        assertEquals("paymentData is not valid", exception.getMessage());
+        assertEquals("Invalid payment data", exception.getMessage());
         assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
     }
 
@@ -207,7 +210,7 @@ public class PaymentTest {
             payment.setPaymentData(invalidVoucherData);
         });
 
-        assertEquals("paymentData is not valid", exception.getMessage());
+        assertEquals("Invalid payment data", exception.getMessage());
         assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
     }
 
@@ -220,7 +223,7 @@ public class PaymentTest {
             payment.setPaymentData(invalidVoucherData);
         });
 
-        assertEquals("paymentData is not valid", exception.getMessage());
+        assertEquals("Invalid payment data", exception.getMessage());
         assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
     }
 
@@ -233,7 +236,7 @@ public class PaymentTest {
             payment.setPaymentData(invalidVoucherData);
         });
 
-        assertEquals("paymentData is not valid", exception.getMessage());
+        assertEquals("Invalid payment data", exception.getMessage());
         assertEquals("ESHOP12345678ABC", payment.getPaymentData().get("voucherCode"));
     }
 
